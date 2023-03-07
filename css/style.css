@@ -24,3 +24,41 @@ body{
   color:#fff;
   text-shadow: 0px 0px 5px rgba(0,0,0,0.5);
 }
+.main header .iconshopping{
+  cursor:pointer;
+  z-index:1;
+  position:relative;
+  font-size: 2.4rem;
+}
+.main header .iconshopping p{
+  position:absolute;
+  top:-5px;
+  right:-12px;
+  font-size: 0.7rem;
+  background-color: #000;
+  padding:5px;
+  border-radius: 50%;
+
+
+}
+.main .itemsbox{
+  position:relative;
+  height:calc(100%-15vh);
+  margin: 0 auto;
+  padding:50px 25px;
+  display:grid;
+  gap: 10px;
+  grid-template-columns: auto auto auto;
+  overflow: hidden;
+ 
+  width:90%;
+}
+.main .itemsbox .item{
+   height: 400px;
+}
+.main .itemsbox .item img{
+  position: relative;
+  height:60%;
+  width:100%;
+  object-fit: contain;
+}
