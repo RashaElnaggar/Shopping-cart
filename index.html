@@ -9,6 +9,19 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css"/>
+<script>
+
+function Delete(e){
+    let items = [];
+    JSON.parse(localStorage.getItem('items')).map(data=>{
+    if(data.id != e.parentElement.parentElement.children[0].textContent){
+        items.push(data);
+      }
+    });
+    localStorage.setItem('items',JSON.stringify(items));
+    window.location.reload();
+  }
+</script>
 </head>
 <body>
   <div class="main">
@@ -18,8 +31,8 @@
       </div>
       
       <div class="iconshopping">
-        <p>0</p>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <p id="itemsNo">0</p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
           <path fill="currentColor" d="M7 22q-.825 0-1.413-.588T5 20q0-.825.588-1.413T7 18q.825 0 1.413.588T9 20q0 .825-.588 1.413T7 22Zm10 0q-.825 0-1.413-.588T15 20q0-.825.588-1.413T17 18q.825 0 1.413.588T19 20q0 .825-.588 1.413T17 22ZM7 17q-1.125 0-1.7-.988t-.05-1.962L6.6 11.6L3 4H1.975q-.425 0-.7-.288T1 3q0-.425.288-.713T2 2h1.625q.275 0 .525.15t.375.425L5.2 4h14.75q.675 0 .925.5t-.025 1.05l-3.55 6.4q-.275.5-.725.775T15.55 13H8.1L7 15h11.025q.425 0 .7.288T19 16q0 .425-.288.713T18 17H7Z"/>
         </svg>
        </div>
@@ -92,6 +105,6 @@
   </div>
 </div>
   </div>
-<script src="js/main.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

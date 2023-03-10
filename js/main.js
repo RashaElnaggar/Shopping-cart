@@ -1,8 +1,31 @@
+// function Delete(){
+// if(document.readyState==loading){
+//   document.addEventListener('DOMContentLoaded',ready);
+
+// }else{
+//   ready();
+// }
+// }
+// function ready(){
+//   const shoppingCartpitem = document.querySelector('.iconshopping p');
+
+//   let removeCartitemBtn=document.getElementsByClassName('btndelete');
+//   console.log(removeCartitemBtn);
+//   for(let i=0;i<removeCartitemBtn.length;i++){
+//     var button=removeCartitemBtn[i];
+//     button.addEventListener("click",function(e){
+//       var btnclicked=e.target;
+//       btnclicked.parentElement.parentElement.remove();
+//     });
+//   }
+// }
+
 window.onload = function () {
   console.log("javascript is working");
   const icon = document.querySelector('.iconshopping');
   const closebtn = document.getElementById('iconClosebtn');
-  const cartBox = document.querySelector('.shoppingCartbox')
+  const cartBox = document.querySelector('.shoppingCartbox');
+ 
   icon.addEventListener('click', function (){
     cartBox.classList.add('active');
     console.log("carticon clicked");
@@ -10,60 +33,91 @@ window.onload = function () {
   closebtn.addEventListener('click', function (){
     cartBox.classList.remove('active');
   });
-}
 
-//add data to loca storage
-addbtn = document.querySelector('.addTocart');
+
+//add data to local storage
+const addbtn = document.getElementsByClassName('addTocart');
+const ItemsNo =document.querySelector('.main header .iconshopping p');
+console.log(ItemsNo.textContent);
 let items = [];
-for (i = 0; i < addbtn.length; i++) {
-  addbtn[i].addEventListener("click", function (e) {
+let cartItemsno = 0;
+for (let i=0; i<addbtn.length; i++) {
+    addbtn[i].addEventListener("click", function (e) {
+    console.log("add button clicked");     
+    console.log(i);   
+
     if (typeof (Storage) !== 'undefined') {
       let item = {
         id: i + 1,
         name: e.target.parentElement.children[0].textContent,
         price: e.target.parentElement.children[1].children[0].textContent,
-        no: 1
+        no :1
       };
+      //console.log(e.target.parentElement.children[0].textContent);
+      
       if (JSON.parse(localStorage.getItem('items')) === null) {
-        items.push(item);
-        localStorage.setItem("items", JSON.stringify(items));
+        items.push(item);        
+        localStorage.setItem('items', JSON.stringify(items));
         window.location.reload();
       }
       else {
         const localItems = JSON.parse(localStorage.getItem("items"));
         localItems.map(data => {
-          if (item.id == data.id)
+          if (item.id == data.id){
             item.no = data.no + 1;
-          elseitems.push(data);
+             
+          }
+          else{
+          items.push(data);
+          }
         });
+        items.push(item);
+        localStorage.setItem('items',JSON.stringify(items));
+
+        window.location.reload();
       }
-
-
     }
-    else {
-      alert('localstorage is empty');
-    
-    });
+       else {
+      alert('localstorage is empty');    
+    }
+  });
+ 
+}
 
   //add items to cart
-  const shoppingCartp = document.querySelector('table');
-  letno = 0;
+  const shoppingCartp = document.querySelector('.iconshopping p');
+  let no = 0;
   JSON.parse(localStorage.getItem('items')).map(data => {
-    no = no + data.no
+    no = no + data.no;
   });
   shoppingCartp.innerHTML = no;
 
+  //delete function
+  // function Delete(e){
+  //   let items = [];
+  //   JSON.parse(localStorage.getItem('items')).map(data=>{
+  //   if(data.id != e.parentElement.parentElement.children[0].textContent){
+  //       items.push(data);
+  //     }
+  //   });
+  //   localStorage.setItem('items',JSON.stringify(items));
+  //   window.location.reload();
+  // }
   //add cartbox data in table
   const carttable = cartBox.querySelector('table');
+  console.log(carttable);
   let tableData = '';
-  tableData += '<tr><th>S no.</th> <th>Item Name</th><th>Item No</th><th>Item price</th></tr>';
+  tableData += '<tr><th>S no.</th> <th>Item Name</th><th>Item No</th><th>Item price</th><th>Remove item</th></tr>';
   if (JSON.parse(localStorage.getItem('items'))[0] === null) {
     tableData += '<tr><td colspan="5">No items found</td></tr>';
   }
   else {
     JSON.parse(localStorage.getItem('items')).map(data => {
-      tabledata += '<tr><th>' + data.id + '</th><th>' + data.name + '</th><th>' + data.no + '</th><th>' + data.price + '</th><th><a href="#" onclick=Delete(this);>Delete</a></th></tr>';
+      tableData += '<tr><th>' + data.id + '</th><th>' + data.name + '</th><th>' + data.no + '</th><th>' + data.price + '</th><th><a href="#" class="btndelete" onclick=Delete(this);>Delete</a></th></tr>';
     });
+  
   }
 
+ carttable.innerHTML=tableData;
+  
 }

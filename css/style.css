@@ -8,24 +8,27 @@ html{
 
 }
 body{
-  margin:0 ;
+  margin:0  auto;
   padding:0;
   line-height:1;
   font-weight: 400;
   letter-spacing: -0.5px;
-  max-width: 100%;
+  /* max-width: 80%; */
   box-sizing: border-box;
   font-family: "Roboto";
 }
 .container{
-  width:100rem;
+  width:80%;
  margin:0 auto;
-  margin:0 auto;
+ display: flex;
+ align-items: center;
+
 }
 .main {
   /* position:relative;
   height: 100vh;
-  max-width: 100%; */
+  width: 100%; */
+ 
  
  
 }
@@ -47,15 +50,16 @@ body{
   cursor:pointer;
   z-index:1;
   position:relative;
-  font-size:3rem;
+  font-size:3.2rem;
 }
 .main header .iconshopping p{
   position:absolute;
-  top:-12px;
+  top:-14px;
   right:-5px;
-  font-size: 0.7rem;
-  background-color: #000;
-  padding:5px ;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background-color: #a32bab;
+  padding:6px;
   border-radius: 50%;
 
 
@@ -63,6 +67,7 @@ body{
 .main .itemsbox{
   position:relative;
   height:calc(100% - 15vh);
+  width:80%;
   margin: 0 auto;
   padding:5rem 2.5rem;
   display:grid;
@@ -70,7 +75,7 @@ body{
   grid-template-columns: auto auto auto;
   overflow: hidden;
  
-  width:90%;
+  
 }
 .main .itemsbox .item{
   position:relative;
@@ -162,4 +167,29 @@ cursor:pointer
   margin-top:2%;
   font-size:2.8rem;
   color:rgb(27, 125, 170);
+}
+table{
+  border-collapse: collapse;
+  width:60%;
+  font-size: 1.6rem;
+  font-weight: 600;
+  box-shadow: 0px 0px 3px rgba(0,0,0,0.5);
+}
+th,td{
+  text-align: left;
+  padding:8px;
+}
+tr:nth-child(even){
+ background-color: #9c9494 important;
+ 
+}
+
+tr:first-child{
+  background-color: #3f3434;
+  color:#fff;
+  font-size: 1.8rem;
+}
+.btndelete{
+
+
 }
