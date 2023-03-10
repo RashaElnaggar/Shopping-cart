@@ -44,13 +44,14 @@ let cartItemsno = 0;
 for (let i=0; i<addbtn.length; i++) {
     addbtn[i].addEventListener("click", function (e) {
     console.log("add button clicked");     
-    console.log(i);   
-
+    console.log(i);  
+    // addbtn[i].textContent=("Remove From Cart");
+    // addbtn[i].style.fontSize ="1.4rem";
     if (typeof (Storage) !== 'undefined') {
       let item = {
         id: i + 1,
-        name: e.target.parentElement.children[0].textContent,
-        price: e.target.parentElement.children[1].children[0].textContent,
+        name: e.target.parentElement.parentElement.children[0].textContent,
+        price: e.target.parentElement.parentElement.children[1].children[0].textContent,
         no :1
       };
       //console.log(e.target.parentElement.children[0].textContent);
@@ -87,6 +88,7 @@ for (let i=0; i<addbtn.length; i++) {
   //add items to cart
   const shoppingCartp = document.querySelector('.iconshopping p');
   let no = 0;
+  let total= 0;
   JSON.parse(localStorage.getItem('items')).map(data => {
     no = no + data.no;
   });
@@ -105,8 +107,10 @@ for (let i=0; i<addbtn.length; i++) {
   // }
   //add cartbox data in table
   const carttable = cartBox.querySelector('table');
+  const totalPrice= cartBox.querySelector('p');
   console.log(carttable);
   let tableData = '';
+  let priceTotal=''
   tableData += '<tr><th>S no.</th> <th>Item Name</th><th>Item No</th><th>Item price</th><th>Remove item</th></tr>';
   if (JSON.parse(localStorage.getItem('items'))[0] === null) {
     tableData += '<tr><td colspan="5">No items found</td></tr>';
@@ -114,10 +118,49 @@ for (let i=0; i<addbtn.length; i++) {
   else {
     JSON.parse(localStorage.getItem('items')).map(data => {
       tableData += '<tr><th>' + data.id + '</th><th>' + data.name + '</th><th>' + data.no + '</th><th>' + data.price + '</th><th><a href="#" class="btndelete" onclick=Delete(this);>Delete</a></th></tr>';
+      total+=data.price*data.no ;
+      console.log(total);
     });
   
   }
 
  carttable.innerHTML=tableData;
+ priceTotal='<span>'+total+'</span>'
+ totalPrice.innerHTML+=priceTotal;
   
 }
+// show quick preview
+const previewContainer=document.querySelector(".preview-products");
+const previewBox=previewContainer.querySelectorAll(".preview-products .preview");
+
+document.querySelectorAll(".main .itemsbox .item").forEach(item=>{
+  const link=item.querySelector(".links .quick-preview");
+ 
+  link.addEventListener("click",function(){
+     previewContainer.style.display="flex";
+    // let name=link.parentElement.parentElement.getAttribute('data-name');
+    let name=item.getAttribute('data-name');
+    console.log(name);
+    previewBox.forEach(preview=>{
+      
+      let target=preview.getAttribute('data-target');
+      console.log(target);
+      if(name == target){
+      preview.classList.add('active');
+      }
+    });
+
+  });
+
+});
+
+previewBox.forEach(close=>{
+close.querySelector("svg").addEventListener("click",function(){
+close.classList.remove("active");
+previewContainer.style.display="none";
+
+})
+
+
+});
+

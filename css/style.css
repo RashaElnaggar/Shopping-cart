@@ -111,7 +111,79 @@ font-weight: 400;
 padding:1rem 0;
 color: rgb(27, 125, 170);
 }
-.main .itemsbox .item a{
+.main .itemsbox .item .links{
+  display:grid;
+  grid-template-columns: repeat(2,1fr);
+  gap:1rem;
+
+}
+.main .itemsbox .item .links a{
+  position:relative;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: 400;
+  padding:1rem 1.5rem;
+  background-color:#0f0f0f;
+  color:#fff;
+  padding:1rem 1.2rem;
+  border:0.5px solid #333;
+
+}
+.main .itemsbox .item .links a:hover{
+  background: #666666;
+}
+.preview-products{
+  position: fixed;
+  top:0; left:0;
+  min-height: 100vh;
+  width: 100%;
+  background: rgba(0,0,0,.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.preview-products .preview{
+  display: none;
+  padding:2rem;
+  text-align: center;
+  background: #fff;
+  position: relative;
+  margin:2rem;
+  width: 40rem;
+}
+
+.preview-products .preview.active{
+  display: inline-block;
+}
+.preview-products .preview svg{
+    position: absolute;
+    top:0; 
+    right:0;
+    width:2.4rem;
+    height:2.4rem;
+    cursor: pointer;
+    color:#444;
+    background-color: rgb(207, 6, 39);
+    font-size: 4rem;
+ }
+.preview-products .preview img{
+  height: 20rem;
+}
+.preview-products .preview .itemInfo p{
+  position:relative;
+  width:100%;
+  text-align: center;
+  font-size:1.4rem;
+  font-weight: 400;
+  padding:1rem 0;
+  color: rgb(27, 125, 170);
+}
+.preview-products .preview a{
   position:relative;
   text-align: left;
   text-decoration: none;
@@ -123,7 +195,7 @@ color: rgb(27, 125, 170);
   padding:1rem 1.5rem;
 
 }
-.main .itemsbox .item a:hover{
+.preview-products .preview a:hover{
   background: #666666;
 }
 .shoppingCartbox{
@@ -170,7 +242,7 @@ cursor:pointer
 }
 table{
   border-collapse: collapse;
-  width:60%;
+  width:80%;
   font-size: 1.6rem;
   font-weight: 600;
   box-shadow: 0px 0px 3px rgba(0,0,0,0.5);
@@ -192,4 +264,13 @@ tr:first-child{
 .btndelete{
 
 
+}
+.shoppingCartbox .cart p{
+  position:relative;
+width:100%;
+text-align: center;
+font-size:1.4rem;
+font-weight: 400;
+padding: 0;
+color: rgb(27, 125, 170);
 }
