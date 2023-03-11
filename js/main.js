@@ -52,8 +52,8 @@ for (let i=0; i<addbtn.length; i++) {
     addbtn[i].addEventListener("click", function (e) {
     console.log("add button clicked");     
     console.log(i);  
-    // addbtn[i].textContent=("Remove From Cart");
-    // addbtn[i].style.fontSize ="1.4rem";
+     addbtn[i].textContent=("Remove From Cart");
+     addbtn[i].style.fontSize ="1.4rem";
     if (typeof (Storage) !== 'undefined') {
       let item = {
         id: i + 1,
