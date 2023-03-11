@@ -3,3 +3,30 @@
   font-size:55%;
  } 
 }
+@media(max-width:768){
+  .main .itemsbox .item img{
+    height:18rem;
+   
+  }
+  .main .itemsbox{
+    grid-template-columns: auto auto;
+  }
+.preview-products .preview img{
+  height:18rem;
+}
+}
+
+@media(max-width:450){
+  
+  .main .itemsbox .item{
+    height:40rem;
+  }
+
+  .main .itemsbox .item .links{
+    grid-template-rows: repeat(2,2rem);
+  }
+  html{
+    font-size:40%;
+  }
+
+}
