@@ -21,7 +21,7 @@
 // }
 var products=[
 ['images/camera.jpg','FinePix Pro2 3D Camera','1800.00','No'],
- ['images/camera.jpg','FinePix Pro2 3D Camera','1800.00','No'],
+ ['images/cannon-cam.jpg','FinePix Pro2 3D Camera','1800.00','No'],
  ['images/camera.jpg','FinePix Pro2 3D Camera','1800.00','No'],
  ['images/camera.jpg','FinePix Pro2 3D Camera','1800.00','No'],
  ['images/camera.jpg','FinePix Pro2 3D Camera','1800.00','No'],
