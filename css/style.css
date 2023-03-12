@@ -20,8 +20,7 @@ body{
 .container{
   width:80%;
  margin:0 auto;
- display: flex;
- align-items: center;
+
 
 }
 .main {
@@ -72,7 +71,8 @@ body{
   padding:5rem 2.5rem;
   display:grid;
   gap: 1rem;
-  grid-template-columns: auto auto auto;
+  
+  grid-template-columns: auto auto auto ;
   overflow: hidden;
  
   
@@ -113,6 +113,7 @@ color: rgb(27, 125, 170);
 }
 .main .itemsbox .item .links{
   display:grid;
+  grid-auto-flow:column;
   grid-template-columns: repeat(2,1fr);
   gap:1rem;
 
