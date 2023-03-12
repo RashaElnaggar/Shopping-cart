@@ -66,7 +66,9 @@
   .main .itemsbox .item{
     height:40rem;
   }
- 
+  .main .itemsbox .item .links a{
+   width:8rem;
+  }
 }
 
 
