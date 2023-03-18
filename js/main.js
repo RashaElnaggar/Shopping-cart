@@ -21,11 +21,11 @@
 // }
 var products=[
 ['images/camera.jpg','FinePix Pro2 3D Camera','1800.00','No'],
- ['images/cannon-cam.jpg','FinePix Pro2 3D Camera','1800.00','No'],
- ['images/camera.jpg','FinePix Pro2 3D Camera','1800.00','No'],
- ['images/camera.jpg','FinePix Pro2 3D Camera','1800.00','No'],
- ['images/camera.jpg','FinePix Pro2 3D Camera','1800.00','No'],
- ['images/camera.jpg','FinePix Pro2 3D Camera','1800.00','No']
+ ['images/cannon-cam.jpg','Canon EOS 5D Mark III / 5D3(Black)','579.00','No'],
+ ['images/external-hard-drive.jpg','EXP Portable Hard Drive','800.00','No'],
+ ['images/laptop.jpg','XP 1155 Intel Core Laptop','1200.00','No'],
+ ['images/watch.jpg','Luxury Ultra thin Wrist Watch','500.00','No'],
+ ['images/photoghraphy-light.jpg','Ring Fill Light - 26 CM For Professional Photography','1000.00','No']
 ]
 window.onload = function () {
   console.log("javascript is working");
